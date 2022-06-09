@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>子查询 | dal-doc</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="记录生活">
+    
+    <link rel="preload" href="/assets/css/0.styles.e1700646.css" as="style"><link rel="preload" href="/assets/js/app.4a2d9594.js" as="script"><link rel="preload" href="/assets/js/2.b723e7b1.js" as="script"><link rel="preload" href="/assets/js/21.9471a755.js" as="script"><link rel="prefetch" href="/assets/js/10.53d6a392.js"><link rel="prefetch" href="/assets/js/11.bb129914.js"><link rel="prefetch" href="/assets/js/12.075507c0.js"><link rel="prefetch" href="/assets/js/13.79d5632a.js"><link rel="prefetch" href="/assets/js/14.854b4683.js"><link rel="prefetch" href="/assets/js/15.b35fe5ec.js"><link rel="prefetch" href="/assets/js/16.e2046cca.js"><link rel="prefetch" href="/assets/js/17.4043a677.js"><link rel="prefetch" href="/assets/js/18.b5044167.js"><link rel="prefetch" href="/assets/js/19.344e1360.js"><link rel="prefetch" href="/assets/js/20.72c9bf00.js"><link rel="prefetch" href="/assets/js/22.cb660acb.js"><link rel="prefetch" href="/assets/js/23.d97c70a3.js"><link rel="prefetch" href="/assets/js/3.536d2a59.js"><link rel="prefetch" href="/assets/js/4.f3745c7c.js"><link rel="prefetch" href="/assets/js/5.152b690a.js"><link rel="prefetch" href="/assets/js/6.ccd3a674.js"><link rel="prefetch" href="/assets/js/7.6ef38051.js"><link rel="prefetch" href="/assets/js/8.47bf155e.js"><link rel="prefetch" href="/assets/js/9.0c4cd143.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e1700646.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">dal-doc</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/java/" class="nav-link">
+  java
+</a></div><div class="nav-item"><a href="/database/" class="nav-link router-link-active">
+  数据库
+</a></div><div class="nav-item"><a href="/alg/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="https://www.jiansys.work/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="http://www.baidu.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  中文
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://www.baidu.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  英文
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/java/" class="nav-link">
+  java
+</a></div><div class="nav-item"><a href="/database/" class="nav-link router-link-active">
+  数据库
+</a></div><div class="nav-item"><a href="/alg/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="https://www.jiansys.work/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博客
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="http://www.baidu.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  中文
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://www.baidu.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  英文
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>数据库笔记</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>MySql</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/database/mysql/basis.html" class="sidebar-link">MySql-基本语句</a></li><li><a href="/database/mysql/operator.html" class="sidebar-link">MySql-运算符</a></li><li><a href="/database/mysql/sort-paging.html" class="sidebar-link">MySql-排序与分页</a></li><li><a href="/database/mysql/moretable.html" class="sidebar-link">MySql-多表查询</a></li><li><a href="/database/mysql/single-function.html" class="sidebar-link">MySql-单行函数</a></li><li><a href="/database/mysql/aggregation-function.html" class="sidebar-link">MySql-聚合函数</a></li><li><a href="/database/mysql/subquery.html" aria-current="page" class="active sidebar-link">MySql-子查询</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/database/mysql/subquery.html#_1、单行子查询、多行子查询" class="sidebar-link">1、单行子查询、多行子查询</a></li><li class="sidebar-sub-header"><a href="/database/mysql/subquery.html#_2、相关子查询、不相关子查询" class="sidebar-link">2、相关子查询、不相关子查询</a></li></ul></li><li><a href="/database/mysql/statement.html" class="sidebar-link">MySql-语句</a></li><li><a href="/database/mysql/function.html" class="sidebar-link">MySql-函数</a></li></ul></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="子查询"><a href="#子查询" class="header-anchor">#</a> 子查询</h1> <p>子查询指一个查询语句嵌套在另一个查询语句内部的查询，这个特性从MySQL 4.1开始引入。</p> <p>SQL 中子查询的使用大大增强了 SELECT 查询的能力，因为很多时候查询需要从结果集中获取数据，或者需要从同一个表中先计算得出一个数据结果，然后与这个数据结果（可能是某个标量，也可能是某个集合）进行比较。</p> <p>子查询的基本使用   子查询的基本语法结构：     子查询（内查询）在主查询之前一次执行完成。</p> <p>子查询的结果被主查询（外查询）使用 。</p> <p>注意事项：     子查询要包含在括号内；</p> <p>将子查询放在比较条件的右侧；</p> <p>单行操作符对应单行子查询，多行操作符对应多行子查询。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token class-name">SELECT</span> last_name<span class="token punctuation">,</span>salary
+from employees
+WHERE salary <span class="token operator">&gt;</span> <span class="token punctuation">(</span>
+				SELECT salary
+				FROM employees
+				<span class="token class-name">WHERE</span> last_name <span class="token operator">=</span> <span class="token char">'Abel'</span>
+				<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>子查询的分类   按内查询的结果返回一条还是多条记录，将子查询分为单行子查询、 多行子查询 。   我们按内查询是否被执行多次，将子查询划分为相关(或关联)子查询和 不相关(或非关联)子查询。</p> <p>子查询从数据表中查询了数据结果，如果这个数据结果只执行一次，然后这个数据结果作为主查询的条件进行执行，那么这样的子查询叫做不相关子查询。</p> <p>同样，如果子查询需要执行多次，即采用循环的方式，先从外部查询开始，每次都传入子查询进行查询，然后再将结果反馈给外部，这种嵌套的执行方式就称为相关子查询。</p> <h2 id="_1、单行子查询、多行子查询"><a href="#_1、单行子查询、多行子查询" class="header-anchor">#</a> 1、单行子查询、多行子查询</h2> <p>单行子查询   单行比较操作符 <img src="https://img-blog.csdnimg.cn/9448ebbcea564aad8ecc89d0cceab7e4.png#pic_center" alt="img"></p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>#<span class="token number">4.</span> 单行子查询
+#<span class="token number">4.1</span> 单行操作符： <span class="token operator">=</span>  <span class="token operator">!=</span>  <span class="token operator">&gt;</span>   <span class="token operator">&gt;=</span>  <span class="token operator">&lt;</span>  <span class="token operator">&lt;=</span> 
+
+#题目：查询与<span class="token number">141</span>号员工的manager_id和department_id相同的其他员工
+#的employee_id，manager_id，department_id。
+#方式<span class="token number">1</span>：
+<span class="token class-name">SELECT</span> employee_id<span class="token punctuation">,</span>manager_id<span class="token punctuation">,</span>department_id
+FROM employees
+<span class="token class-name">WHERE</span> manager_id <span class="token operator">=</span> <span class="token punctuation">(</span>
+					SELECT manager_id
+					FROM employees
+					<span class="token class-name">WHERE</span> employee_id <span class="token operator">=</span> <span class="token number">141</span>
+					<span class="token punctuation">)</span>
+<span class="token class-name">AND</span> department_id <span class="token operator">=</span> <span class="token punctuation">(</span>
+					SELECT department_id
+					FROM employees
+					<span class="token class-name">WHERE</span> employee_id <span class="token operator">=</span> <span class="token number">141</span>
+					<span class="token punctuation">)</span>
+AND employee_id <span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span> <span class="token number">141</span><span class="token punctuation">;</span>
+
+#方式<span class="token number">2</span>：了解（成对查询）
+<span class="token class-name">SELECT</span> employee_id<span class="token punctuation">,</span>manager_id<span class="token punctuation">,</span>department_id
+FROM employees
+WHERE <span class="token punctuation">(</span>manager_id<span class="token punctuation">,</span>department_id<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+				    <span class="token class-name">SELECT</span> manager_id<span class="token punctuation">,</span>department_id
+			      	FROM employees
+				    <span class="token class-name">WHERE</span> employee_id <span class="token operator">=</span> <span class="token number">141</span>
+				   <span class="token punctuation">)</span>
+AND employee_id <span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span> <span class="token number">141</span><span class="token punctuation">;</span>
+
+#题目：查询最低工资大于<span class="token number">110</span>号部门最低工资的部门id和其最低工资
+<span class="token class-name">SELECT</span>	department_id<span class="token punctuation">,</span><span class="token function">MIN</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+FROM employees
+GROUP BY department_id
+<span class="token class-name">HAVING</span> <span class="token function">MIN</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token punctuation">(</span>
+					 <span class="token class-name">SELECT</span> <span class="token function">MIN</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+					 FROM employees
+					 <span class="token class-name">WHERE</span> department_id <span class="token operator">=</span> <span class="token number">110</span>
+					 <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><p>CASE中的子查询</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>#题目：显式员工的employee_id<span class="token punctuation">,</span>last_name和location。
+#其中，若员工department_id与location_id为<span class="token number">1800</span>的department_id相同，
+#则location为’<span class="token class-name">Canada</span>’，其余则为’USA’。
+
+<span class="token class-name">SELECT</span> employee_id<span class="token punctuation">,</span>last_name<span class="token punctuation">,</span>CASE department_id WHEN <span class="token punctuation">(</span>SELECT department_id
+                                                      FROM departments
+                                                      <span class="token class-name">WHERE</span> location_id <span class="token operator">=</span> <span class="token number">1800</span><span class="token punctuation">)</span>
+                                                      THEN <span class="token char">'Canada'</span>
+	                                                  ELSE <span class="token char">'USA'</span> END <span class="token string">&quot;location&quot;</span>
+<span class="token class-name">FROM</span> employees<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>子查询中的空值问题     子查询不返回任何行</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>#<span class="token number">4.2</span> 子查询中的空值问题
+
+<span class="token class-name">SELECT</span> last_name<span class="token punctuation">,</span> job_id
+FROM   employees
+<span class="token class-name">WHERE</span>  job_id <span class="token operator">=</span>
+                <span class="token punctuation">(</span>SELECT job_id
+                 FROM   employees
+                 <span class="token class-name">WHERE</span>  last_name <span class="token operator">=</span> <span class="token char">'Haas'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>非法使用子查询</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>#<span class="token number">4.3</span> 非法使用子查询
+#错误：<span class="token class-name">Subquery</span> returns more than <span class="token number">1</span> row
+<span class="token class-name">SELECT</span> employee_id<span class="token punctuation">,</span> last_name
+FROM   employees
+<span class="token class-name">WHERE</span>  salary <span class="token operator">=</span>
+                <span class="token punctuation">(</span><span class="token class-name">SELECT</span>   <span class="token function">MIN</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+                 FROM     employees
+                 GROUP <span class="token class-name">BY</span> department_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>多行子查询   也称为集合比较子查询；</p> <p>内查询返回多行；</p> <p>使用多行比较操作符。</p> <p>多行比较操作符 <img src="https://img-blog.csdnimg.cn/16e49cb44a454d6194a2398bf4f472b4.png#pic_center" alt="img"></p> <div class="language-java line-numbers-mode"><pre class="language-java"><code># IN<span class="token operator">:</span>
+<span class="token class-name">SELECT</span> employee_id<span class="token punctuation">,</span> last_name
+FROM   employees
+WHERE  salary IN
+                <span class="token punctuation">(</span><span class="token class-name">SELECT</span>   <span class="token function">MIN</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+                 FROM     employees
+                 GROUP <span class="token class-name">BY</span> department_id<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+# ANY <span class="token operator">/</span> ALL<span class="token operator">:</span>
+#题目：返回其它job_id中比job_id为‘IT_PROG’部门任一工资低的员工的员工号、
+#姓名、job_id 以及salary
+
+<span class="token class-name">SELECT</span> employee_id<span class="token punctuation">,</span>last_name<span class="token punctuation">,</span>job_id<span class="token punctuation">,</span>salary
+FROM employees
+WHERE job_id <span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span> 'IT_PROG' 
+AND salary <span class="token operator">&lt;</span> ANY <span class="token punctuation">(</span>
+                  SELECT salary
+                  FROM employees
+                  <span class="token class-name">WHERE</span> job_id <span class="token operator">=</span> 'IT_PROG' 
+                 <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+#题目：返回其它job_id中比job_id为‘IT_PROG’部门所有工资低的员工的员工号、
+#姓名、job_id 以及salary
+<span class="token class-name">SELECT</span> employee_id<span class="token punctuation">,</span>last_name<span class="token punctuation">,</span>job_id<span class="token punctuation">,</span>salary
+FROM employees
+WHERE job_id <span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span> 'IT_PROG'
+AND salary <span class="token operator">&lt;</span> ALL <span class="token punctuation">(</span>
+		          SELECT salary
+		          FROM employees
+		          <span class="token class-name">WHERE</span> job_id <span class="token operator">=</span> 'IT_PROG'
+		          <span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+#题目：查询平均工资最低的部门id
+#<span class="token class-name">MySQL</span>中聚合函数是不能嵌套使用的。<span class="token function">MIN</span><span class="token punctuation">(</span><span class="token function">AVG</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span><span class="token punctuation">)</span>是错误的
+#方式<span class="token number">1</span>：
+
+SELECT department_id
+FROM employees
+GROUP BY department_id
+<span class="token class-name">HAVING</span> <span class="token function">AVG</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+						<span class="token class-name">SELECT</span> <span class="token function">MIN</span><span class="token punctuation">(</span>avg_sal<span class="token punctuation">)</span>
+						FROM <span class="token punctuation">(</span>
+								<span class="token class-name">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> avg_sal
+								FROM employees
+								GROUP <span class="token class-name">BY</span> department_id
+							<span class="token punctuation">)</span> t_dept_avg_sal
+					<span class="token punctuation">)</span>
+
+#方式<span class="token number">2</span>：
+SELECT department_id
+FROM employees
+GROUP BY department_id
+<span class="token class-name">HAVING</span> <span class="token function">AVG</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token function">ALL</span><span class="token punctuation">(</span>	
+							<span class="token class-name">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> avg_sal
+							FROM employees
+							GROUP <span class="token class-name">BY</span> department_id
+						<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br></div></div><p>空值问题</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>#<span class="token number">5.3</span> 空值问题
+SELECT last_name
+FROM employees
+WHERE employee_id <span class="token class-name">NOT</span> IN <span class="token punctuation">(</span>
+			SELECT manager_id
+			<span class="token class-name">FROM</span> employees
+			<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="_2、相关子查询、不相关子查询"><a href="#_2、相关子查询、不相关子查询" class="header-anchor">#</a> 2、相关子查询、不相关子查询</h2> <p>相关子查询   如果子查询的执行依赖于外部查询，通常情况下都是因为子查询中的表用到了外部的表，并进行了条件关联，因此每执行一次外部查询，子查询都要重新计算一次，这样的子查询就称之为关联子查询。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>#结论：在SELECT中，除了GROUP BY 和 LIMIT之外，其他位置都可以声明子查询！
+<span class="token comment">/*
+SELECT ....,....,....(存在聚合函数)
+FROM ... (LEFT / RIGHT)JOIN ....ON 多表的连接条件 
+(LEFT / RIGHT)JOIN ... ON ....
+WHERE 不包含聚合函数的过滤条件
+GROUP BY ...,....
+HAVING 包含聚合函数的过滤条件
+ORDER BY ....,...(ASC / DESC )
+LIMIT ...,....
+*/</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>相关子查询按照一行接一行的顺序执行，主查询的每一行都执行一次子查询。</p> <p>子查询中使用主查询中的列</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>#题目：查询员工中工资大于本部门平均工资的员工的last_name<span class="token punctuation">,</span>salary和其department_id
+#方式<span class="token number">1</span>：使用相关子查询
+<span class="token class-name">SELECT</span> last_name<span class="token punctuation">,</span>salary<span class="token punctuation">,</span>department_id
+FROM employees e1
+WHERE salary <span class="token operator">&gt;</span> <span class="token punctuation">(</span>
+				<span class="token class-name">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+				FROM employees e2
+				<span class="token class-name">WHERE</span> department_id <span class="token operator">=</span> e1<span class="token punctuation">.</span>department_id
+							 <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+#方式<span class="token number">2</span>：在FROM中声明子查询
+SELECT e<span class="token punctuation">.</span>last_name<span class="token punctuation">,</span>e<span class="token punctuation">.</span>salary<span class="token punctuation">,</span>e<span class="token punctuation">.</span>department_id
+FROM employees e<span class="token punctuation">,</span><span class="token punctuation">(</span>
+				<span class="token class-name">SELECT</span> department_id<span class="token punctuation">,</span><span class="token function">AVG</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> avg_sal
+				FROM employees
+				GROUP <span class="token class-name">BY</span> department_id<span class="token punctuation">)</span> t_dept_avg_sal
+WHERE e<span class="token punctuation">.</span>department_id <span class="token operator">=</span> t_dept_avg_sal<span class="token punctuation">.</span>department_id
+AND e<span class="token punctuation">.</span>salary <span class="token operator">&gt;</span> t_dept_avg_sal<span class="token punctuation">.</span>avg_sal
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>EXISTS 与 NOT EXISTS关键字   关联子查询通常也会和 EXISTS操作符一起来使用，用来检查在子查询中是否存在满足条件的行。</p> <p>如果在子查询中不存在满足条件的行：     条件返回 FALSE     继续在子查询中查找</p> <p>如果在子查询中存在满足条件的行：     不在子查询中继续查找     条件返回 TRUE</p> <p>NOT EXISTS关键字表示如果不存在某种条件，则返回TRUE，否则返回FALSE。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>#题目：查询公司管理者的employee_id，last_name，job_id，department_id信息
+#方式<span class="token number">1</span>：自连接
+SELECT DISTINCT mgr<span class="token punctuation">.</span>employee_id<span class="token punctuation">,</span>mgr<span class="token punctuation">.</span>last_name<span class="token punctuation">,</span>mgr<span class="token punctuation">.</span>job_id<span class="token punctuation">,</span>mgr<span class="token punctuation">.</span>department_id
+FROM employees emp JOIN employees mgr
+ON emp<span class="token punctuation">.</span>manager_id <span class="token operator">=</span> mgr<span class="token punctuation">.</span>employee_id<span class="token punctuation">;</span>
+
+#方式<span class="token number">2</span>：子查询
+
+<span class="token class-name">SELECT</span> employee_id<span class="token punctuation">,</span>last_name<span class="token punctuation">,</span>job_id<span class="token punctuation">,</span>department_id
+FROM employees
+WHERE employee_id IN <span class="token punctuation">(</span>
+			SELECT DISTINCT manager_id
+			<span class="token class-name">FROM</span> employees
+			<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+#方式<span class="token number">3</span>：使用EXISTS
+<span class="token class-name">SELECT</span> employee_id<span class="token punctuation">,</span>last_name<span class="token punctuation">,</span>job_id<span class="token punctuation">,</span>department_id
+FROM employees e1
+<span class="token class-name">WHERE</span> EXISTS <span class="token punctuation">(</span>
+	       SELECT <span class="token operator">*</span>
+	       FROM employees e2
+	       WHERE e1<span class="token punctuation">.</span>employee_id <span class="token operator">=</span> e2<span class="token punctuation">.</span>manager_id
+	     <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>相关更新</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>UPDATE table1 alias1
+<span class="token class-name">SET</span> column <span class="token operator">=</span> <span class="token punctuation">(</span>SELECT expression
+			  FROM table2 alias2
+			  WHERE alias1<span class="token punctuation">.</span>column <span class="token operator">=</span> alias2<span class="token punctuation">.</span>column<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>使用相关子查询依据一个表中的数据更新另一个表的数据。</p> <p>题目：在employees中增加一个department_name字段，数据为员工对应的部门名称</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code># <span class="token number">1</span>）
+ALTER TABLE employees
+<span class="token function">ADD</span><span class="token punctuation">(</span>department_name <span class="token function">VARCHAR2</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+# <span class="token number">2</span>）
+UPDATE employees e
+<span class="token class-name">SET</span> department_name <span class="token operator">=</span> <span class="token punctuation">(</span>SELECT department_name
+FROM departments d
+WHERE e<span class="token punctuation">.</span>department_id <span class="token operator">=</span> d<span class="token punctuation">.</span>department_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>相关删除</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>DELETE FROM table1 alias1
+WHERE column operator <span class="token punctuation">(</span>SELECT expression
+FROM table2 alias2
+WHERE alias1<span class="token punctuation">.</span>column <span class="token operator">=</span> alias2<span class="token punctuation">.</span>column<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>使用相关子查询依据一个表中的数据删除另一个表的数据。</p> <p>题目：删除表employees中，其与emp_history表皆有的数据</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>DELETE FROM employees e
+WHERE employee_id in
+					<span class="token punctuation">(</span>SELECT employee_id
+					 FROM emp_history
+					 <span class="token class-name">WHERE</span> employee_id <span class="token operator">=</span> e<span class="token punctuation">.</span>employee_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/database/mysql/aggregation-function.html" class="prev">
+        MySql-聚合函数
+      </a></span> <span class="next"><a href="/database/mysql/statement.html">
+        MySql-语句
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4a2d9594.js" defer></script><script src="/assets/js/2.b723e7b1.js" defer></script><script src="/assets/js/21.9471a755.js" defer></script>
+  </body>
+</html>

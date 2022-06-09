@@ -49,10 +49,22 @@ module.exports = {
                 children: [{
                     title: 'MySql',
                     children: [
+                        ['/database/mysql/basis', 'MySql-基本语句'],
+                        ['/database/mysql/operator', 'MySql-运算符'],
+                        ['/database/mysql/sort-paging', 'MySql-排序与分页'],
+                        ['/database/mysql/moretable', 'MySql-多表查询'],
+                        ['/database/mysql/single-function', 'MySql-单行函数'],
+                        ['/database/mysql/aggregation-function', 'MySql-聚合函数'],
+                        ['/database/mysql/subquery', 'MySql-子查询'],
                         ['/database/mysql/statement', 'MySql-语句'],
                         ['/database/mysql/function', 'MySql-函数']
                     ]
-                }, ],
+                }, {
+                    title: 'Redis',
+                    children: [
+                        ['/database/redis/basis', 'Redis-基本语句'],
+                    ]
+                }],
             }],
             '/': [''], //不能放在数组第一个，否则会导致右侧栏无法使用 
         }
